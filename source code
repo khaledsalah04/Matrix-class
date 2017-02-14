@@ -1,0 +1,203 @@
+#include <iostream> 
+#include <cmath>
+#include <string>
+#define size 3
+using namespace std;
+
+class matrix
+{
+public:
+	int mat[size][size];
+	int row;
+	int coloumn;
+
+	void intialize()
+	{
+		for (int i=0;i<size;i++)
+	{
+
+		for (int j=0;j<size;j++)
+		{
+			mat[i][j]=0;
+		}
+		}
+	}
+
+
+	void setdimention (int a,int b)
+	{
+		row=a;
+		coloumn=b;
+	}
+
+
+	void setvalue (int r,int c ,int a)
+	{
+
+mat[r][c]=a;
+	}
+
+	void setvalue2 (int a,int b,int c, int d,int e,int f,int g,int h,int i)
+	{
+		mat[0][0]=a;
+		mat[0][1]=b;
+		mat[0][2]=c;
+		mat[1][0]=d;
+		mat[1][1]=e;
+		mat[1][2]=f;
+		mat[2][0]=g;
+		mat[2][1]=h;
+		mat[2][2]=i;
+	}
+	
+
+
+	void add (matrix a,matrix b)
+
+		{
+		for (int i=0;i<size;i++)
+	{
+
+		for (int j=0;j<size;j++)
+		{
+
+			mat[i][j]=a.mat[i][j]+b.mat[i][j];
+		}
+		cout<<"\n";
+	}
+	}
+
+	void subtract (matrix a,matrix b)
+
+		{
+		for (int i=0;i<size;i++)
+	{
+
+		for (int j=0;j<size;j++)
+		{
+
+			mat[i][j]=a.mat[i][j]-b.mat[i][j];
+		}
+		cout<<"\n";
+	}
+	}
+
+	void multiply (matrix a, matrix b)
+	{
+
+		for (int i=0;i<size;i++)
+		{
+			for (int j=0;j<size;j++)
+			{
+				mat[i][j]=0;
+
+					for (int k=0;k<size;k++)
+					{
+						mat[i][j]=mat[i][j]+a.mat[i][k]*b.mat[k][j];
+					}
+			}
+		}
+						}
+	
+
+
+	void print()
+	{
+		for (int i=0;i<size;i++)
+	{
+
+		for (int j=0;j<size;j++)
+		{
+
+			cout<<mat[i][j]<<"\t";
+		}
+		cout<<"\n";
+	}
+	}
+
+
+
+		
+};
+
+
+int numrows(string a)
+{
+	int numrow=1;
+
+	for (int i=0;i<a.length();i++)
+	{
+		if (a.substr(i,1)==";")
+			numrow++;
+	}
+
+
+	return numrow;
+}
+
+int numcols(string a)
+{
+	int numcol=1;
+
+	for (int i=0;i<a.length();i++)
+	{
+		if (a.substr(i,1)==" ")
+			numcol++;
+		if (a.substr(i,1)==";")
+			break;
+	}
+
+
+	return numcol;
+}
+
+
+
+
+int main()
+{
+	string input;
+	getline(cin,input);
+
+	cout<<numrows(input)<<endl;
+	cout<<numcols(input)<<endl;
+
+	/*matrix x,y,z,m,n;
+	
+
+	x.setdimention(size,size);
+	y.setdimention(size,size);
+
+
+	x.setvalue2(1,2,3,4,5,6,7,8,9);
+	y.setvalue2(9,8,7,6,5,4,3,2,1);
+
+
+	z.intialize();
+
+
+	x.print();
+
+	cout<<"\n\n";
+
+	y.print();
+
+	z.add(x,y);
+
+	cout<<"\n\n";
+	z.print();
+	cout<<"\n\n";
+
+	m.subtract(x,y);
+	m.print();
+	cout<<"\n\n";
+
+	n.multiply(x,y);
+	n.print();*/
+
+	
+
+	system ("pause");
+
+
+}
